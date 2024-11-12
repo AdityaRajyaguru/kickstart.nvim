@@ -10,10 +10,13 @@ return {
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      -- vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'tokyonight-night'
 
       -- You can configure highlights by doing something like:
-      -- vim.cmd.hi 'Comment gui=none'
+      vim.cmd.hi 'Comment gui=none'
+      vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#7dcfff', bold = true })
+      vim.api.nvim_set_hl(0, 'LineNr', { fg = 'white', bold = true })
+      vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#bb9af7', bold = true })
     end,
     opts = {
       transparent = true,
@@ -44,10 +47,10 @@ return {
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'onedark'
+      -- vim.cmd.colorscheme 'onedark'
 
       -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+      -- vim.cmd.hi 'Comment gui=none'
       vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#51B3EC', bold = true })
       vim.api.nvim_set_hl(0, 'LineNr', { fg = 'white', bold = true })
       vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#FB508F', bold = true })

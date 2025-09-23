@@ -4,7 +4,8 @@ return {
     event = 'VeryLazy',
     opts = {
       options = {
-        theme = 'tokyonight',
+        --theme = 'tokyonight',
+        theme = 'onedark',
       },
     },
   },

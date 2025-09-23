@@ -44,5 +44,5 @@ keymap.set('n', '<s-tab>', vim.cmd.tabprev, opts)
 keymap.set('n', 'ss', vim.cmd.split, opts)
 keymap.set('n', 'sv', vim.cmd.vsplit, opts)
 
-local discipline = require 'config.discipline'
-discipline.cowboy()
+-- local discipline = require 'config.discipline'
+-- discipline.cowboy()

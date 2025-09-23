@@ -6,7 +6,6 @@
 --
 -- The function helps to enforce using repeating motions on vim.
 --
---]]
 local M = {}
 
 function M.cowboy()
@@ -45,3 +44,4 @@ function M.cowboy()
 end
 
 return M
+--]]

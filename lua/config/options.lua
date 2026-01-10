@@ -56,10 +56,19 @@ vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Tab size
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.softtabstop = 2
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
 vim.opt.expandtab = true
+
+-- Indentation Options
+vim.opt.smarttab = true
+vim.opt.smartindent = true
+vim.opt.autoindent = true
+
+-- Set how neovim will display certain whitespace characters in the editor
+vim.opt.list = true
+vim.opt.listchars = { tab = '>> ', trail = '.', nbsp = '_' }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'

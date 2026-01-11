@@ -82,7 +82,3 @@ vim.opt.scrolloff = 10
 -- Undercurl
 vim.cmd [[let &t_Cs = "\e[4:3m"]]
 vim.cmd [[let &t_Ce = "\e[4:0m"]]
-
-vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#51B3EC', bold = true })
-vim.api.nvim_set_hl(0, 'LineNr', { fg = 'white', bold = true })
-vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#FB508F', bold = true })

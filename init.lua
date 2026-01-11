@@ -204,3 +204,50 @@ require('lazy').setup('plugins', {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+-- -- Force transparency for signs and the gutter
+local function fix_transparency()
+  local git_colors = {
+    GitSignsAdd = '#98c379', -- Green
+    GitSignsChange = '#e5c07b', -- Yellow/Orange
+    GitSignsDelete = '#e06c75', -- Red
+    GitSignsTopdelete = '#e06c75',
+    GitSignsChangedelete = '#e5c07b',
+  }
+
+  local groups = {
+    'Normal',
+    'NormalFloat',
+    'SignColumn',
+    'LineNr',
+    'CursorLineNr',
+    'GitSignsAdd',
+    'GitSignsChange',
+    'GitSignsDelete',
+    'GitSignsTopdelete',
+    'GitSignsChangedelete',
+    'DiffAdd',
+    'DiffChange',
+    'DiffDelete',
+    'DiffText',
+  }
+  for _, group in ipairs(groups) do
+    local hl = vim.api.nvim_get_hl(0, { name = group, link = false })
+
+    local fg_color = hl.fg or git_colors[group]
+
+    vim.api.nvim_set_hl(0, group, {
+      bg = 'NONE',
+      ctermbg = 'NONE',
+      fg = fg_color,
+      bold = hl.bold,
+    })
+  end
+end
+
+-- 1. Run it immediately
+fix_transparency()
+
+-- 2. Run it every time a colorscheme is loaded (critical for one-half-dark)
+vim.api.nvim_create_autocmd('ColorScheme', {
+  callback = fix_transparency,
+})

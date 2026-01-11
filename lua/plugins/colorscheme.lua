@@ -68,11 +68,22 @@ return {
 
       -- You can configure highlights by doing something like:
       -- vim.cmd.hi 'Comment gui=none'
-      vim.cmd.colorscheme 'onehalfdark'
-
-      vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#51B3EC', bold = true })
-      vim.api.nvim_set_hl(0, 'LineNr', { fg = 'white', bold = true })
-      vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#FB508F', bold = true })
+      --vim.cmd.colorscheme 'onehalfdark'
+    end,
+  },
+  {
+    'oskarnurm/koda.nvim',
+    lazy = true,
+    priority = 1000,
+    config = function()
+      --vim.cmd 'colorscheme koda'
+    end,
+  },
+  {
+    'bettervim/yugen.nvim',
+    lazy = false,
+    config = function()
+      vim.cmd.colorscheme 'yugen'
     end,
   },
 }

@@ -29,6 +29,9 @@ return {
         return {
           timeout_ms = 500,
           lsp_format = lsp_format_opt,
+          filter = function(client)
+            return client.name == 'eslint'
+          end,
         }
       end,
       formatters_by_ft = {
@@ -37,7 +40,10 @@ return {
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettierd', 'prettier' },
+        typescript = { 'prettierd', 'prettier' },
+        javascriptreact = { 'prettierd', 'prettier' },
+        typescriptreact = { 'prettierd', 'prettier' },
       },
     },
   },

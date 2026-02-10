@@ -83,7 +83,16 @@ return {
     'bettervim/yugen.nvim',
     lazy = false,
     config = function()
-      vim.cmd.colorscheme 'yugen'
+      --     vim.cmd.colorscheme 'yugen'
+    end,
+  },
+  {
+    'rebelot/kanagawa.nvim',
+    lazy = false,
+    config = function()
+      --vim.cmd.colorscheme 'kanagawa-wave'
+      --vim.cmd.colorscheme 'kanagawa-lotus'
+      vim.cmd.colorscheme 'kanagawa-dragon'
     end,
   },
 }

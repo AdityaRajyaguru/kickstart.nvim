@@ -29,9 +29,6 @@ return {
         return {
           timeout_ms = 500,
           lsp_format = lsp_format_opt,
-          filter = function(client)
-            return client.name == 'eslint'
-          end,
         }
       end,
       formatters_by_ft = {

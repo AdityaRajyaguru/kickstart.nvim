@@ -1,9 +1,11 @@
+vim.loader.enable()
+
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
 -- Make line numbers default
---vim.opt.number = true
+-- vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
@@ -24,6 +26,10 @@ vim.opt.showmode = false
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
+
+-- if performing an operation that would fail due to unsaved changes
+-- (like `:q`), raise a dialog asking if you wish to save
+vim.o.confirm = true
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -66,10 +72,6 @@ vim.opt.smarttab = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 
--- Set how neovim will display certain whitespace characters in the editor
-vim.opt.list = true
-vim.opt.listchars = { tab = '>> ', trail = '.', nbsp = '_' }
-
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
 
@@ -78,6 +80,25 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+-- Diagnostic config
+vim.diagnostic.config {
+  update_in_insert = false,
+  severity_sort = true,
+  float = { border = 'rounded', source = 'if_many' },
+  underline = { severity = { min = vim.diagnostic.severity.WARN } },
+  virtual_text = true,
+  virtual_lines = false,
+  jump = {
+    on_jump = function(_, bufnr)
+      vim.diagnostic.open_float {
+        bufnr = bufnr,
+        scope = 'cursor',
+        focus = false,
+      }
+    end,
+  },
+}
 
 -- Undercurl
 vim.cmd [[let &t_Cs = "\e[4:3m"]]

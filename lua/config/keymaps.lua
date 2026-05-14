@@ -45,5 +45,20 @@ keymap.set('n', '<s-tab>', vim.cmd.tabprev, opts)
 keymap.set('n', 'ss', vim.cmd.split, opts)
 keymap.set('n', 'sv', vim.cmd.vsplit, opts)
 
--- local discipline = require 'config.discipline'
--- discipline.cowboy()
+-- Telescope keymaps (inline require for lazy loading)
+vim.keymap.set('n', '<leader>/', function()
+  require('telescope.builtin').current_buffer_fuzzy_find(
+    require('telescope.themes').get_dropdown { winblend = 10, previewer = false }
+  )
+end, { desc = '[/] Fuzzily search in current buffer' })
+
+vim.keymap.set('n', '<leader>s/', function()
+  require('telescope.builtin').live_grep {
+    grep_open_files = true,
+    prompt_title = 'Live Grep in Open Files',
+  }
+end, { desc = '[S]earch [/] in Open Files' })
+
+vim.keymap.set('n', '<leader>sn', function()
+  require('telescope.builtin').find_files { cwd = vim.fn.stdpath 'config' }
+end, { desc = '[S]earch [N]eovim files' })
